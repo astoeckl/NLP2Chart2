@@ -1,0 +1,5 @@
+*.env
+*.pickle
+*.log
+*.mp4
+/env
