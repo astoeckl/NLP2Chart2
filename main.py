@@ -356,11 +356,11 @@ def create_figure():
 with col1:
     #st.write(st.session_state)
     st.header('Create Charts with Commands in Natural Language')
-    #demo_video = st.expander(label='Tutorial Video')
-    #with demo_video:
+    demo_video = st.expander(label='Tutorial Video')
+    with demo_video:
         #video_file = open('NLP2Chart.mp4', 'rb')
         #video_bytes = video_file.read()
-        #st.video(video_bytes)
+        st.video(data="https://www.youtube.com/watch?v=cRrwU_VNEKQ&t=2s")
     st.text_area("Advise the system", key="comand_input", on_change=getGPT3,
         help="Examples: \n Plot a sinus function from -4 pi to 4 pi; \n Make an array of 400 random numbers and plot a horizontal histogram; \n plot sum of total_cases grouped by location as bar chart (COVID19 Data)")
     fig = create_figure()
