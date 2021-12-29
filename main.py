@@ -356,11 +356,11 @@ def create_figure():
 with col1:
     #st.write(st.session_state)
     st.header('Create Charts with Commands in Natural Language')
-    demo_video = st.expander(label='Tutorial Video')
-    with demo_video:
-        video_file = open('NLP2Chart.mp4', 'rb')
-        video_bytes = video_file.read()
-        st.video(video_bytes)
+    #demo_video = st.expander(label='Tutorial Video')
+    #with demo_video:
+        #video_file = open('NLP2Chart.mp4', 'rb')
+        #video_bytes = video_file.read()
+        #st.video(video_bytes)
     st.text_area("Advise the system", key="comand_input", on_change=getGPT3,
         help="Examples: \n Plot a sinus function from -4 pi to 4 pi; \n Make an array of 400 random numbers and plot a horizontal histogram; \n plot sum of total_cases grouped by location as bar chart (COVID19 Data)")
     fig = create_figure()
@@ -372,12 +372,11 @@ set_widgets()
 
 st.sidebar.markdown('### Export ###')
 
-if st.sidebar.button('Save PNG'):
-     with open('fig'+ st.session_state.id +'.pickle', 'rb') as f:
-         fig = pickle.load(f)
-     fig.savefig('figure_export.png', dpi=fig.dpi)
-
-if st.sidebar.button('Save HTML'):
-     with open('fig'+ st.session_state.id +'.pickle', 'rb') as f:
-         fig = pickle.load(f)
-     mpld3.save_html(fig,'figure_export.html')
+with open('fig'+ st.session_state.id +'.pickle', 'rb') as f:
+    fig = pickle.load(f)
+fig.savefig('figure_export.png', dpi=fig.dpi)
+mpld3.save_html(fig,'figure_export.html')
+with open('figure_export.png', 'rb') as f:
+   st.sidebar.download_button('Download PNG', f, file_name='figure_export.png')
+with open('figure_export.html', 'rb') as f:
+   st.sidebar.download_button('Download HTML', f, file_name='figure_export.html')
