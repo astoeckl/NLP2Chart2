@@ -24,17 +24,17 @@ first 20
 
 ## Plots / Linecharts
 
-Mean lifeExp over country 
+Mean lifeExp over country
 draw per year
 
 
-lifeExp for austria
+lifeExp for Austria
 plot per year
 
 
 ## Scatterplots
 mean over country
-scatterplot of pop versus lifeExp 
+scatterplot of pop versus lifeExp
 #color gdpPercap
 pop as size
 pop as color
@@ -42,7 +42,7 @@ pop as color
 
 ##Pie Charts
 sum over country
-group by continent 
+group by continent
 pop as pie chart
 
 
@@ -56,15 +56,18 @@ from 0 to 3
 set y limit to 10
 
 # Random Data
-Make an array of 400 random numbers 
+Make an array of 400 random numbers
 plot a histogram
 40 bins
 
 # Covid Data
 
-plot sum of total_cases 
-grouped by continent 
-as bar chart sorted 
+plot sum of total_cases
+grouped by continent
+as bar chart sorted
+
+group total_cases and total_deaths by location
+scatterplot
 
 
 #########################################

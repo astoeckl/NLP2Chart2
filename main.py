@@ -365,6 +365,8 @@ def create_figure():
 
     ### Set Colors of Bargroups
     for i in range(num_bars):
+        if plt.gca().get_legend() != None:
+            plt.gca().get_legend().set_visible(False)
         if 'barcolor'+str(i) in st.session_state:
             for j in range(len(plt.gca().containers[i].patches)):
                 plt.setp(plt.gca().containers[i].patches[j], facecolor = st.session_state['barcolor'+str(i)])
