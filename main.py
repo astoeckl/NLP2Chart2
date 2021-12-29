@@ -218,7 +218,26 @@ def set_widgets():
                         ind = 0
                     st.selectbox("Points "+str(i+1),  maplist, index = ind, key="pointcolor"+str(i))
 
+        ### Widgets for Barplots
+        if plt.gca().containers:
+            bar_color = st.expander(label='Color of Bars')
+            num_bars = len(plt.gca().containers)
+            with bar_color:
+                for i in range(num_bars):
+                    color = plt.gca().containers[i].patches[0].properties()['facecolor']
+                    color = to_hex(color)
+                    st.color_picker('Bargroup '+str(i+1), color, key="barcolor"+str(i))
 
+            #legend_bars = st.expander(label='Legend')
+            #with legend_bars:
+                #if plt.gca().get_legend() != None:
+                    #vis = plt.gca().get_legend().get_visible()
+                #else:
+                    #vis = False
+                #st.checkbox('Visible', value = vis , key = 'visiblelegend_bar')
+                #for i in range(num_bars):
+                    #barlegend = plt.getp(plt.gca(),'legend_handles_labels')[1][i]
+                    #st.text_input("Label for Bargroup "+str(i+1), value = barlegend, key="barlabel"+str(i))
 
 def my_exec(script):
     '''Execute a script protected'''
@@ -290,6 +309,7 @@ def create_figure():
 
     numcolls = len(plt.gca().collections)
     numlines = len(plt.gca().get_lines())
+    num_bars = len(plt.gca().containers)
 
     ### Set Colors
     for i in range(numlines):
@@ -341,8 +361,33 @@ def create_figure():
             plt.setp(plt.gca().collections[i], cmap=plt.get_cmap(st.session_state['pointcolor'+str(i)]))
         #plt.getp(plt.gca().collections[i], 'cmap').name
 
+############## Barcharts ##########
 
-    ### Set Title
+    ### Set Colors of Bargroups
+    for i in range(num_bars):
+        if 'barcolor'+str(i) in st.session_state:
+            for j in range(len(plt.gca().containers[i].patches)):
+                plt.setp(plt.gca().containers[i].patches[j], facecolor = st.session_state['barcolor'+str(i)])
+            #exec('plt.gca().get_lines()[i].set_color(\''+ st.session_state['linecolor'+str(i)] +'\')')
+            #if plt.gca().get_legend() != None:
+                #exec('plt.gca().get_legend().legendHandles[i].set_color(\''+ st.session_state['linecolor'+str(i)] +'\')')
+
+    ### Set legend for Bars
+    #for i in range(num_bars):
+        #if 'barlabel'+str(i) in st.session_state:
+            #plt.gca().properties()['legend_handles_labels'][1][i] = st.session_state['barlabel'+str(i)]
+            #exec('plt.gca().get_lines()[i].set_label(\''+ st.session_state['linelabel'+str(i)] +'\')')
+            #plt.legend()
+
+    #if 'visiblelegend_bar' in st.session_state:
+        #if st.session_state.visiblelegend_bar:
+            #if plt.gca().get_legend() != None:
+                #plt.gca().get_legend().set_visible(True)
+        #else:
+            #if plt.gca().get_legend() != None:
+                #plt.gca().get_legend().set_visible(False)
+
+######## Set Title
     if 'title' in st.session_state:
         my_exec('plt.gca().set_title(\''+ st.session_state.title +'\')')
 
