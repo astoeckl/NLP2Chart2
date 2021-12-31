@@ -1,49 +1,54 @@
 # Gapminder
 
 ## Histogram
-
+Aufgabe 1)
 make a histogram of lifeExp
 50 bins
 blue color
-Title Hist
-x Axes label years
-y Axes label frequ
-y Axes limit 1000
+Title Histogram
+x Axes label Count
+y Axes label Feature
+
 
 ## BARCHARTS
-
+Aufgabe 2)
 barchart of lifeExp by continent
 blue color
-title Help
+title Life Expetancy
 
-mean over years
+Aufgabe 3)
 barchart of gdpPercap by country
+group by country
 sort descending
-first 20
+first 15
+Title Top Gdp Countries
+
+##Pie Charts
+Aufgabe 4)
+pop as pie chart
+group by continent
 
 
 ## Plots / Linecharts
-
+Aufgabe 5)
 Mean lifeExp over country
 draw per year
 
 
-lifeExp for Austria
-plot per year
-
-
 ## Scatterplots
+Aufgabe 6)
 mean over country
-scatterplot of pop versus lifeExp
-#color gdpPercap
-pop as size
+scatterplot of gdpPercap versus lifeExp
 pop as color
 
+Aufgabe 7)
+mean by country
+scatterplot of gdpPercap versus lifeExp
+pop as size
 
-##Pie Charts
-sum over country
-group by continent
-pop as pie chart
+
+
+
 
 
 #########################################
@@ -56,18 +61,18 @@ from 0 to 3
 set y limit to 10
 
 # Random Data
-Make an array of 400 random numbers
+400 random numbers / 400 random normal numbers
 plot a histogram
 40 bins
 
 # Covid Data
 
-plot sum of total_cases
-grouped by continent
-as bar chart sorted
+group by continent
+plot total_cases
 
-group total_cases and total_deaths by location
-scatterplot
+# Cars Dataset
+
+scatterplot Length and Height
 
 
 #########################################
