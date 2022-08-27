@@ -22,7 +22,6 @@ markersdict = {'.': 'point', ',': 'pixel', 'o': 'circle', 'v': 'triangle_down', 
 
 ### Customize UI
 st.set_page_config(layout="wide", page_title="NLP2Chart", page_icon=":)")
-#st.set_page_config(layout="wide")
 
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
@@ -38,9 +37,8 @@ st.markdown(f""" <style>
     }} </style> """, unsafe_allow_html=True)
 
 
-### Session ID vergeben
+### Session ID
 
-#st.session_state.style = "ggplot"
 plt.style.use('ggplot')
 def get_session_id():
     session_id = get_report_ctx().session_id
@@ -49,7 +47,7 @@ def get_session_id():
     return session_id
 st.session_state.id = str(get_session_id())
 
-### Figure intialisieren
+### Init Figure
 
 def init_widgets():
     if 'xaxis' in st.session_state:
@@ -68,9 +66,6 @@ def init_widgets():
         del st.session_state.ylim_end
     return True
 
-#fig = plt.gcf()
-#contained_artists = fig.get_children()
-#if len(contained_artists) <= 1:
 fig = plt.figure()
 ax = fig.add_subplot()
 #ax.set_title("Figure Title")
@@ -79,13 +74,6 @@ with open('fig'+ st.session_state.id +'.pickle', 'wb') as f: # should be 'wb' ra
 
 ### Layout Sidebar ###
 
-# Style Selection
-#st.sidebar.markdown('### Styles ###')
-#option = st.sidebar.selectbox(
-    #'Select a Base-Style', ('ggplot', 'default', 'dark_background', 'fivethirtyeight', 'grayscale', 'seaborn-dark', 'Solarize_Light2'))
-#st.session_state.style = option
-#st.sidebar.write('You selected:', option)
-
 agree = st.sidebar.checkbox('Grid')
 if agree:
     st.session_state.grid = 'plt.grid(True)'
@@ -93,6 +81,7 @@ else:
     st.session_state.grid = 'plt.grid(False)'
 
 st.sidebar.markdown('### Datasets ###')
+
 # Data Selection
 datafiles = ['No Dataset'] + [file for file in listdir(".") if file.endswith('.csv')]
 option = st.sidebar.selectbox(
@@ -228,17 +217,7 @@ def set_widgets():
                     color = to_hex(color)
                     st.color_picker('Bargroup '+str(i+1), color, key="barcolor"+str(i))
 
-            #legend_bars = st.expander(label='Legend')
-            #with legend_bars:
-                #if plt.gca().get_legend() != None:
-                    #vis = plt.gca().get_legend().get_visible()
-                #else:
-                    #vis = False
-                #st.checkbox('Visible', value = vis , key = 'visiblelegend_bar')
-                #for i in range(num_bars):
-                    #barlegend = plt.getp(plt.gca(),'legend_handles_labels')[1][i]
-                    #st.text_input("Label for Bargroup "+str(i+1), value = barlegend, key="barlabel"+str(i))
-
+# Execute the generated code
 def my_exec(script):
     '''Execute a script protected'''
     scriptlist = script.split('\n')
@@ -280,7 +259,6 @@ def getGPT3():
 
 #@st.cache
 def create_figure():
-    #plt.style.use(st.session_state.style)
     plt.style.use('ggplot')
     plt.rcParams['figure.figsize'] = (10, 5)
 
@@ -359,7 +337,6 @@ def create_figure():
     for i in range(numcolls):
         if 'pointcolor'+str(i) in st.session_state:
             plt.setp(plt.gca().collections[i], cmap=plt.get_cmap(st.session_state['pointcolor'+str(i)]))
-        #plt.getp(plt.gca().collections[i], 'cmap').name
 
 ############## Barcharts ##########
 
@@ -370,25 +347,7 @@ def create_figure():
         if 'barcolor'+str(i) in st.session_state:
             for j in range(len(plt.gca().containers[i].patches)):
                 plt.setp(plt.gca().containers[i].patches[j], facecolor = st.session_state['barcolor'+str(i)])
-            #exec('plt.gca().get_lines()[i].set_color(\''+ st.session_state['linecolor'+str(i)] +'\')')
-            #if plt.gca().get_legend() != None:
-                #exec('plt.gca().get_legend().legendHandles[i].set_color(\''+ st.session_state['linecolor'+str(i)] +'\')')
-
-    ### Set legend for Bars
-    #for i in range(num_bars):
-        #if 'barlabel'+str(i) in st.session_state:
-            #plt.gca().properties()['legend_handles_labels'][1][i] = st.session_state['barlabel'+str(i)]
-            #exec('plt.gca().get_lines()[i].set_label(\''+ st.session_state['linelabel'+str(i)] +'\')')
-            #plt.legend()
-
-    #if 'visiblelegend_bar' in st.session_state:
-        #if st.session_state.visiblelegend_bar:
-            #if plt.gca().get_legend() != None:
-                #plt.gca().get_legend().set_visible(True)
-        #else:
-            #if plt.gca().get_legend() != None:
-                #plt.gca().get_legend().set_visible(False)
-
+            
 ######## Set Title
     if 'title' in st.session_state:
         my_exec('plt.gca().set_title(\''+ st.session_state.title +'\')')
