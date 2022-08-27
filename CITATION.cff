@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+- family-names: "Stöckl"
+  given-names: "Andreas"
+  orcid: "https://orcid.org/0000-0003-1646-0514"
+
+title: "Natural Language Interface for Data Visualization
+with Deep Learning Based Language Models"
+version: 1.0.0
+doi: 10.1109/IV56949.2022.00031
+date-released: 2022-07-19
+url: "https://github.com/astoeckl/NLP2Chart2"
