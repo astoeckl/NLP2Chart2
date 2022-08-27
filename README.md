@@ -31,4 +31,14 @@ https://www.youtube.com/watch?v=cRrwU_VNEKQ&t=2s
 
 The work was presented at the 26th International Conference Information Visualisation (IV) on 19–22 July 2022 at the “Technische Universität Wien, Austria” and the paper appears in the conference publications.
 
+@software{Stockl_Natural_Language_Interface_2022,
+author = {Stöckl, Andreas},
+doi = {10.1109/IV56949.2022.00031},
+month = {7},
+title = {{Natural Language Interface for Data Visualization with Deep Learning Based Language Models}},
+url = {https://github.com/astoeckl/NLP2Chart2},
+version = {1.0.0},
+year = {2022}
+}
+
 The paper will be soon available at IEEE Xplore Digital Library https://ieeexplore.ieee.org/xpl/conhome/1000370/all-proceedings
