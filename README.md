@@ -11,7 +11,7 @@ Start with "streamlit run main.py"
 
 Data can be processed in CSV format and exported as PNG or HTML. The following chart shows the system architecture using CodeX for code generation.
 
-![Architecture](architectur.png "The Architecture")
+![Architecture](arch.png "The Architecture")
 
 ## GPT3 API
 You need an GPT3 API key from https://openai.com/api/
