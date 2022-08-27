@@ -9,7 +9,7 @@ The prototype is realized as a web application with Python. The framework ”Str
 
 Start with "streamlit run main.py"
 
-Data can be processed in CSV format and exported as PNG or HTML. The following chart shows the system architecture of the version using CodeX for code generation.
+Data can be processed in CSV format and exported as PNG or HTML. The following chart shows the system architecture using CodeX for code generation.
 
 ![Architecture](architectur.png "The Architecture")
 
@@ -30,3 +30,5 @@ https://www.youtube.com/watch?v=cRrwU_VNEKQ&t=2s
 ## Citation
 
 The work was presented at the 26th International Conference Information Visualisation (IV) on 19–22 July 2022 at the “Technische Universität Wien, Austria” and the paper appears in the conference publications.
+
+The paper will be soon available at IEEE Xplore Digital Library https://ieeexplore.ieee.org/xpl/conhome/1000370/all-proceedings
