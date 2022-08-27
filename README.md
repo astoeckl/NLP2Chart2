@@ -32,6 +32,7 @@ https://www.youtube.com/watch?v=cRrwU_VNEKQ&t=2s
 The work was presented at the 26th International Conference Information Visualisation (IV) on 19–22 July 2022 at the “Technische Universität Wien, Austria” and the paper appears in the conference publications.
 
 ###BibTex
+
 @software{Stockl_Natural_Language_Interface_2022,
 author = {Stöckl, Andreas},
 doi = {10.1109/IV56949.2022.00031},
